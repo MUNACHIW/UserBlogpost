@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body class="homepage" >
+
+    
+    <div class="first-section">
+      <div class="logo" id="nav">
+        <h2>dine</h2>
+         <ul>
+             <li><a href="/home">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/signin">signin</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/logoutpage">logoutpage</a></li>
+         </ul> 
+     </div>
+      <div class="subsec1"  >
+       <div class="insights" >
+        <h1>Exquisite dining</h1>
+        <h1>since 1989</h1>
+         <p>
+            Order your delicious meals that is very satisfactory,<br>
+            that dont break the bank and is good for your wellbeing<br>
+            you are also given a platform where as you order online and it will be delivered
+         </p>
+         <button>Book A Table</button>
+       </div>
+      </div>
+      <div class="subsec2">
+
+      </div>
+    </div>
+    <div class="sec-section">
+      <div class="img">
+
+      </div>
+      <div class="subsec">
+      
+      </div>
+      <div class="insight">
+       <h2>Enjoyable Place </h2>
+       <h2>for all the family</h2> 
+       <p>
+        Our menu is brought about by the best natural resources and harvest from the best agricultue which sevres as a healthy meal
+       </p>
+      </div>
+    </div>
+    <div class="third-section">
+      <div class="insight normal">
+        <h2>Enjoyable Place </h2>
+        <h2>for all the family</h2> 
+        <p>
+         Our menu is brought about by the best natural resources and harvest from the best agricultue which sevres as a healthy meal
+        </p>
+      </div>
+      <div class="img2">
+ 
+      </div>
+      <img class="dashin" src="/static/images/dashin.PNG" alt="">
+           <div class="subsec">
+      </div>
+    </div>
+    <div class="fourth-section">
+     <div class="subsec1">
+       <h2 class="first">A few highlights<br> from our menu</h2>
+       <h2 class="scond">A few highlights from our menu</h2>
+       <p>We are always care about what our customers<br> need and we ared satisfied<br> if you are menu are being delivered</p>
+     </div>
+     <div class="subsec2">
+      
+      <div class="section">
+        <div class="sec1"></div>
+        <div class="para1">
+           
+      {% for item in data %} 
+       <a href="/post/{{item['id']}}">
+           <h4>{{item['title']}}</h4>
+       </a>
+        {% endfor %}
+           <p>We have cooks that are ready to go the extra mile just to prep some of the best international dishes</p>
+        </div>
+      </div>
+      <div class="section">
+         <div class="sec2"></div>
+         <div class="para2">
+          <h4>African Quisine</h4>
+          <p>We have cooks that are ready to go the extra mile just to prep some of the best international dishes</p>
+         </div>
+      </div>
+      <div class="section">
+       <div class="sec3"></div>
+       <div class="para3">
+        <h4>India Quisine</h4>
+        <p>We have cooks that are ready to go the extra mile just to prep some of the best international dishes</p>
+       </div>
+      </div>
+     </div> 
+    </div>
+    <div class="fifth-section">
+    
+      <div class="img">
+       <img class="dashin" src="/static/images/dashin.PNG" alt="">
+      </div>
+      <div class="sub-fifth1">
+
+     </div> 
+     <div class="sub-fifth2">
+       <h2>
+        Family Gathering
+       </h2>
+       <p>
+        We love giving the family the best services we can offer to ensure joy and happiness,<br>
+        where as you can order some of our meals online for your family gathering  asap<br>
+        we arew happy to see you are satisfied 
+       </p>
+       <div class="a">
+        <a href="#">
+          BOOK A TABLE
+        </a>
+       </div>
+       <i href="#">Family Gathering,</i>
+        <i href="#">Special Event,</i>
+        <i href="#">Reception,</i>
+     </div>
+        </div>
+        <div class="sixth-section">
+          <div class="sub-sixth1">
+           <h1>Ready to make a reservation?</h1>
+          </div>
+          <div class="subsixth2">
+            <button>BOOK A TABLE</button>
+          </div>
+        </div>
+        <footer>
+          <div>
+             <h3>dine</h3>
+          </div>
+          <div>
+            <p>North Carolina metropolis<br>Maryland<br>+80 44 128 4567</p>
+          </div>
+          <div>
+            <p>OPEN TIMES<br>MON-FRI 09:00-AM-10:00-PM<br>SAT-SUN 04:00-AM-10:30-AM</p>
+          </div>
+        </footer>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
+

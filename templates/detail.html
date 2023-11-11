@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body class="detail">
+   <section class="blogland">   
+    <div class="logo" id="nav">
+        <h2>dine</h2>
+         <ul>
+             <li><a href="/home">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/signin">signin</a></li>
+            <li><a href="#">about</a></li>
+         </ul> 
+     </div>
+      <h1>{{post.title}}</h1>
+    </section>
+    <div class="blogpara">
+       <p class="parablog">{{post.content}}</p><br>
+    <div class="commentlikesec">
+        <form method="post" class="comments" action="/post/{{post.id}}/comment" onsubmit="validate()">
+            <input type="text" name="content" id="content" placeholder="comment" />
+            <button type="submit">comment</button>
+        </form>    
+    <form  action="{{ url_for('like', post_id=post.id) }}" class="likes" method="POST">
+        <input type="hidden" name="user_id" value="{{ post.id }}">
+        <button type="submit">Like</button>
+        <span>{{ likes }}</span>
+    </form>
+    </div>
+    {% if comments %}
+    {% for comment in comments%}
+      <h5>{{comment.content}}</h5>
+      <a href="/comment/{{comment.id}}/delete">delete Comments</a>
+    {%endfor%}
+    {% else %}
+    <h4>No Comment Yet</h4>
+    {% endif %}
+    </div>
+  
+
+    
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
+<!-- <button type="submit" name="unlike" value="unlike">Unlike</button> -->

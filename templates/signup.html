@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Signup</title>
+</head>
+<body class="signup">
+    <form action="/signup" method="post">
+        <h1>Signup Form</h1>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Type in"  required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Type in" required>
+        </div>
+        <div>
+            <label for="Password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Type in"  required>
+        </div>
+        <div>
+            <label class="service" for="service">Service</label>
+            <select name="service" id="service" placeholder="Services">
+                 <option value="Web Design">Web Design</option>
+                 <option value="Frontend Development">Frontend Development</option>
+                 <option value="Backend Development">Backend Development</option>
+            </select>
+            </div>
+        <div>
+            <label for="Gender">Gender</label>
+            <div class="gender"> 
+                <section>
+                 <input type="checkbox" name="male"  placeholder="Male"  class="checkbox" >
+                 <span>Male</span>
+                </section>
+                <section>
+                 <input type="checkbox" name="female" placeholder="Female" class="checkbox" >
+                 <span>Female</span>
+                </section>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        <a href="/signin">Already have account try to login</a>
+    </form>
+   
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>

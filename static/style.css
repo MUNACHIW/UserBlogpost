@@ -1,0 +1,883 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+form {
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #888888;
+    margin: 50px auto;
+    padding: 20px;
+    width: 500px;
+}
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px #888888;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 95%;
+    background: #333;
+}
+textarea{
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px #888888;
+    font-size: 16px;
+    margin-bottom: 20px;
+    height: 2vh;
+    padding: 10px;
+    width: 95%;
+    background: #333; 
+}
+select {
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 5px #888888;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #333;
+    width: 100%;
+}
+.gender{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 10%;
+}
+.gender span{
+    color: #fff;
+}
+.service{
+    margin-top: 10px;
+}
+.gender section{
+    display: flex;
+}
+button[type="submit"] {
+    background-color: #4CAF50; /* Green */
+      border-radius: 5px;
+      width: 100%;
+      border:none;
+      color:white;
+      font-size:16px;
+      padding:10px 20px; 
+      text-align:center; 
+      text-decoration:none; 
+      display:inline-block; 
+      margin-top:20px; 
+      cursor:pointer; 
+  }
+  button[type="submit"]:hover {
+      background-color:#45a049; 
+  }
+  button[type="submit"]:active {
+      position:relative; 
+      top:1px; 
+  }
+  button[type="submit"]:focus {
+      outline:none; 
+  }
+.homepage{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.first-section{
+    background-color: black;
+    height: 80vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 25px;
+}
+.first-section .subsec1{
+    width:50%;
+    height: 70vh;
+}
+.first-section .subsec2{
+    background:url(./images/food\ icon.jpg);
+    width:450px;
+    height: 450px;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: top;
+}
+.logo{
+position: fixed;
+top:0;
+width: 100%;
+height: 8vh;
+padding-bottom: 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 10px;
+padding-right:10px;
+align-items: center;
+background-color: #000;
+z-index: 99;
+transition: 1s ease-in;
+}
+.navactive{
+    background:#0b1018 ;
+    filter: opacity(88%);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+.logo  ul{
+    display: flex;
+    align-items: center;
+}
+.logo li{
+    list-style: none;
+    margin: 15px;
+}
+.logo li a{
+    text-decoration: none;
+    color:white;
+}
+.logo h2{
+    color:white;
+    font-size: 25px;
+    margin-left:55px ;
+    text-shadow: 2px 4px 4px #fff;
+}
+.insights{
+    width: 75%;
+    height: 40vh;
+    margin-left: 55px;
+    margin-top: 55px;
+}
+.insights h1{
+    font-weight: lighter;
+    color:white;
+    text-shadow: 2px 4px 4px #fff;
+    text-align: left;
+}
+.insights p{
+    color: white;
+    margin-top: 20px;
+}
+.insights button{
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 15px;
+    color: white;
+    border: 1px solid white;
+    width: 30%;
+}
+.sec-section{
+    width: 100%;
+    height: 70vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.third-section{
+    width: 100%;
+    height: 70vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subsec{
+    background:gray ;
+    opacity:10%;
+    width: 60%;
+    height: 40vh;
+    border-top-right-radius: 15px;
+}
+.sec-section .img{
+    background: url(./images/pexels-dario-fernandez-ruz-6827381.jpg);
+    background-size: cover;
+    height: 65vh;
+    width: 25%;
+    position: absolute;
+    z-index: 2;
+    top:28pc;
+    left: 240px;
+    box-shadow: 4px 8px 8px 10px rgba(0, 0, 0, 0.928),
+    inset -10px -10px 10px -1px rgba(0, 0, 0, 0.030);
+}
+.insight{
+    width: 30%;
+    height: 40vh;
+}
+.insight P{
+    margin-top: 10px;
+}
+.normal{
+    margin-left: 30px;
+}
+.third-section .img2{
+    background: url(./images/FB_IMG_16643127997573684~2.jpg);
+    background-size: cover;
+    height: 65vh;
+    width: 25%;
+    position: absolute;
+    z-index: 2;
+    top:60pc;
+    left: 700px;
+    box-shadow: 4px 8px 8px 10px rgba(0,0, 0, 0.928),
+    inset -10px -10px 10px -1px rgba(0, 0, 0, 0.030);
+}
+.third-section .dashin{
+    width:7%;
+    position:relative;
+    left:37pc;
+    z-index: 3;
+    top:-8pc;
+}
+.fourth-section{
+    background: #000;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.fourth-section .subsec1{
+    width: 40%;
+    height: 60vh;
+}
+.fourth-section .subsec1 h2{
+    margin-left: 40px;
+    margin-top: 55px;
+    color:#fff;
+    text-shadow: 2px 4px 4px #fff;
+}
+.fourth-section .subsec1 p{
+    margin-left: 40px;
+    margin-top: 25px;
+    color:#fff;
+}
+.fourth-section .subsec2{
+    width: 40%;
+    height: 60vh;
+}
+.fourth-section .subsec2 .section{
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+.fourth-section .subsec2 .section .sec1{
+    height: 15vh;
+    background: url(./images/chef2.PNG);
+    width: 30%;
+    background-size:cover;
+}
+.fourth-section .subsec2 .section .sec2{
+    height: 15vh;
+    background: url(./images/FB_IMG_16643127744122658.jpg);
+    width: 30%;
+    background-size: cover;
+}
+.fourth-section .subsec2 .section .sec3{
+    height: 15vh;
+    background: url(./images/FB_IMG_16643127997573684~2.jpg);
+    width: 30%;
+    background-size: cover;
+}
+.fourth-section .subsec2 .section .para1{
+    height: 12vh;
+    width:70%;
+}
+.fourth-section .subsec2 .section .para1 h4{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.fourth-section .subsec2 .section .para1 p{
+    color: white;
+    margin-left: 30px;
+}
+.fourth-section .subsec2 .section .para2{
+    height: 12vh;
+    width:70%;
+}
+.fourth-section .subsec2 .section .para2 h4{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.fourth-section .subsec2 .section .para2 p{
+    color: white;
+    margin-left: 30px;
+}
+.fourth-section .subsec2 .section .para3{
+    height: 12vh;
+    width:70%;
+}
+.fourth-section .subsec2 .section .para3 h4{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.fourth-section .subsec2 .section .para3 p{
+    color: white;
+    margin-left: 30px;
+}
+.scond{
+    display: none;
+}
+.fifth-section{
+    height: 70vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content:space-between ;
+}
+.fifth-section .img{
+    background: url(./images/FB_IMG_16643127997573684~2.jpg);
+    background-size: cover;
+    height: 65vh;
+    width: 25%;
+    position: absolute;
+    z-index: 2;
+    top:120pc;
+    left: 160px;
+    box-shadow: 4px 8px 8px 10px rgba(0,0, 0, 0.928),
+    inset -10px -10px 10px -1px rgba(0, 0, 0, 0.030);
+}
+.fifth-section .sub-fifth1{
+    background:gray ;
+    opacity:10%;
+    width: 34%;
+    height: 40vh;
+    border-top-right-radius: 15px;
+    position: relative;
+    left: -20px;
+
+}
+.fifth-section .sub-fifth2{
+    width: 50%;
+    height: 60vh;
+    margin-top: 60px;
+}
+.fifth-section .sub-fifth2 h2{
+    margin-top: 45px;
+} 
+.fifth-section .sub-fifth2 p{
+    margin-top: 30px;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+.fifth-section .sub-fifth2 .a{
+    margin-top: 70px;
+}
+.fifth-section .sub-fifth2 .a a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    padding: 20px;
+    border: none;
+}
+.fifth-section .sub-fifth2 i{
+    position: relative;
+    top:5pc;
+}
+.fifth-section .sub-fifth2 i:hover{
+    font-weight:bold;
+    cursor:context-menu;
+}
+.fifth-section .dashin{
+    width:37%;
+    height: 10vh;
+    position:relative;
+    z-index: 3;
+    left: -17px;
+    top: -25px;
+}
+.sixth-section{
+    height: 25vh;
+    width: 100%;
+    background:linear-gradient(35deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./images/FB_IMG_16643127744122658.jpg);
+    filter:drop-shadow(2px);
+    background-size: cover;
+    background-position: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sixth-section .sub-sixth1{
+    height: 13vh;
+    width: 70%;
+    position: relative;
+    z-index: 90;
+}
+.sixth-section .subsixth2{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+}
+.sixth-section .subsixth2 button{   
+    border: 1px solid white;
+    padding:18px ;
+    color: white;
+    background-color: transparent;
+}
+.sixth-section .sub-sixth1 h1{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+footer{
+    height: 30vh;
+    background: #000;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+footer div{
+    width: 70%;
+}
+footer div h3{
+  color:white;
+  font-size: 30px;
+  margin-top: 80px;
+}
+footer div p{
+    color:white;
+    margin-top: 40px;
+    line-height:35px;
+}
+@media screen and (max-width:1115px) {
+   .third-section .dashin{
+        display:none;
+    }
+}
+@media screen and (max-width:1025px) {
+    .insights p{
+        width: 120%;
+    } 
+    footer div p{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:963px) {
+    .insights button{
+        padding: 10px;
+    }
+    footer div p{
+        font-size: 13px;
+    }
+    .sec-section .img{
+        width: 30%;
+    }
+    .third-section .img2{
+        width: 30%;
+        left:550px;
+    }
+}
+@media screen and (max-width:847px) {
+    .insights button{
+        width: 50%;
+    }
+    footer div p{
+        font-size: 12px;
+    }
+
+    .first-section .subsec2{
+        width:380px;
+        background-size: cover;
+        height: 380px;
+    }
+    .sec-section .img{
+        width: 37%;
+    }
+    .third-section .img2{
+        width: 37%;
+        left: 400px;
+    }
+}
+@media screen and (max-width:768px) {
+    .first-section{
+        flex-direction: column-reverse;
+        height: 108vh;
+        justify-content: center;
+        align-items: center;
+    }
+    footer{
+        grid-template-columns: 1fr;
+        height: 120vh;
+    }
+    footer div p{
+        font-size: 17px;
+        line-height: 35px;
+    }
+    .fifth-section .sub-fifth2 .a{
+        margin-top: 20px;
+    }
+    .fifth-section .sub-fifth2 .a a{
+        padding: 15px;
+    }
+    .fifth-section .sub-fifth2 i{
+        top: 2pc;
+    }
+    .fifth-section{
+        flex-direction:column;
+        height:170vh;
+        align-items: center;
+    }
+    .fifth-section .img{
+        top:217pc;
+        width:56%;
+    }
+    .fourth-section .subsec2 .section{
+        width:170%;
+    }
+    .sec-section .img{
+        top:45pc;
+    }
+    .fourth-section .subsec2{
+        margin-left: -60px;
+    }
+    .fourth-section{
+        flex-direction: column;
+        height: 120vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .fourth-section .subsec1 h2{
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .third-section .img2{
+        top: 105pc;
+        width: 45%;
+        left: 180px;
+    }
+    .first-section .subsec2{
+        width: 340px;
+        height: 340px;
+        margin-left: 20px;
+    }
+    .insight{
+        margin-top: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .sec-section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 130vh;
+    }
+    .third-section{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: 155vh;
+    }
+    .subsec{
+        border-top-left-radius: 15px;
+    }
+    .insights{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .insights h1{
+        text-align: center;
+        width: 130%;
+    }
+    .insights p{
+        text-align: center;
+    }
+    .sixth-section .sub-sixth1 h1{
+        font-size:34px;
+    }
+}
+@media screen and (max-width:640px) {
+    .third-section .img2{
+        top:100pc;
+    }
+    .fifth-section .img{
+        left: 85px;
+    }
+}
+@media screen and (max-width:632px) {
+    .sec-section .img{
+        left: 180px;
+    }
+    .third-section .img2{
+        left: 120px;
+        width: 48%;
+    }
+    .insight h2{
+        width: 120%;
+    }
+    .insight p{
+        width: 125%;
+    }
+    
+}
+@media screen and (max-width:544px){
+ .insights button{
+    width: 70%;
+ }   
+
+ .sec-section .img{
+    width: 48%;
+ }
+ .third-section .img2{
+    width:48%;
+ }
+ .sec-section .subsec{
+    width:90%;
+ }
+}
+@media screen and (max-width:480px) {
+    .sec-section .img{
+        width: 57%;
+        left:100px ;
+    }
+    .sixth-section .subsixth2 button{
+      padding: 10px;
+    }
+    .fifth-section .sub-fifth2 h2{
+        text-align: center;
+    }
+    .sixth-section .sub-sixth1 h1{
+        font-size: 20px;
+    }
+    .fifth-section .sub-fifth2 P{
+        text-align: center;
+}
+    .fifth-section .sub-fifth2{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .fifth-section{
+        padding-bottom: 40px;
+        
+    }
+    .fourth-section .subsec1 p{
+        text-align: center;
+       margin-left: 0px;  
+    }
+    .fourth-section .subsec2 .section{
+        width: 170%;
+    }
+    .fourth-section .subsec2 .section .para1 p{
+        font-size:13px;
+        width:102%;
+    }
+    .fourth-section .subsec2 .section .para2 p{
+        font-size:13px;
+        width:102%;
+    }
+    .fourth-section .subsec2 .section .para3 p{
+        font-size:13px;
+        width:102%;
+    }
+    .first{
+        display: none;
+    }
+    .scond{
+        display: block;
+        width: 280%;
+        font-size: 17px;
+    }
+    .third-section .img{
+
+        width: 57%;
+        left: 80px;
+        margin-bottom: 40px;
+    }
+    .insight h2{
+        width: 170%;
+    }
+    .insight P{
+        width: 175%;
+    }
+    .insights h1{
+        width: 150%;
+    }
+    .insights p{
+        width: 170%;
+    }
+    .insights{
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width:370px){
+    .sec-section .img{
+        left:70px;
+        width: 65%;
+    }
+    .third-section .img2{
+        left: 70px;
+        width: 65%;
+    }
+    .fifth-section .sub-fifth2 h2{
+        width: 120%;
+    }
+    .first-section .subsec2{
+        width: 260px;
+        height: 260px;
+    }
+    .first-section .subsec1 button{
+        width:130%;
+    }
+    .sixth-section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0px;
+    }
+    .sixth-section .sub-sixth1 h1{
+        text-align: center;
+    }
+    .sixth-section .subsixth2 button{
+        font-size: 10px;
+    }
+}
+.bodylogout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+.bodylogout button{
+    background-color: #4CAF50; /* Green */
+    border-radius: 5px;
+    width: auto;
+    border:none;
+    color:white;
+    font-size:16px;
+    padding:10px 20px; 
+    text-align:center; 
+    text-decoration:none; 
+    display:inline-block; 
+    margin-top:20px; 
+    cursor:pointer; 
+}
+.bodylogout button:hover{
+    background-color:#45a049; 
+}
+  .blogland{
+    height: 60vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #000;
+    color:white;
+    font-family: sans-serif;
+  }
+  .blogland h1{
+    color: white;
+    font-size: 40px;
+  }
+  .detail{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: white;
+  }
+  .like{
+    background-color:transparent;
+    border-radius: 5px;
+    box-shadow: none;
+    margin: 50px auto;
+    padding: 0px;
+    top:28px;
+    width: auto; 
+    height: auto;
+    position: relative;
+    left: -50pc;
+    
+  }
+  .signup{
+    background: #000;
+  }
+  .comments{
+    background-color:transparent;
+    border-radius: 5px;
+    box-shadow: none;
+    margin: 0px;
+    padding: none;
+    width: auto; 
+  }
+  .likes{
+    background:transparent;
+    width: auto;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left:-23pc;
+    padding: 0px;
+    margin-top: 6.5pc;
+  }
+  .likes span{
+    margin-top: 20px;
+    margin-left:8px ;
+    font-size: 20px;
+  }
+  .comments input{
+    background: #fff;
+  }
+  .comments button{
+    width: auto;
+  }
+  .postalign{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .blogpara{
+    width: 50%;
+    margin:20px;
+    padding: 10px;
+    height: auto;
+    color:white;
+    background:black;
+  }
+  .blogpara:focus{
+    background: #333;
+  }
+  .parablog{
+    padding: 20px;
+  }
+  .paraholder{
+    width:100%;
+    padding: 20px;
+    padding: 10px;
+    height: auto;
+    background: #45a049;
+  }
+.commentlikesec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

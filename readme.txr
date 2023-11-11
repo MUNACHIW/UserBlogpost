@@ -1,0 +1,240 @@
+<!-- detail.html -->
+<div>
+  <button id="like-button" data-post-id="{{ post.id }}">Like</button>
+  <span id="like-count">{{ like.length }}</span> people liked this post.
+</div>
+
+<script>
+  const likeButton = document.querySelector('#like-button');
+  const likeCount = document.querySelector('#like-count');
+
+  likeButton.addEventListener('click', async () => {
+    const postId = likeButton.dataset.postId;
+    const response = await fetch(`/post/${postId}/like`, { method: 'POST' });
+    const data = await response.json();
+    likeCount.textContent = data.like_count;
+  });
+</script>
+# app.py
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+@app.route('/post/<int:id>/like', methods=['POST'])
+def like_post(id):
+    # Increment the number of likes for the post with the given id
+    # and return the updated number of likes.
+    # ...
+    return jsonify({'like_count': like_count})
+
+
+......>>>>
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///likes.db'
+db = SQLAlchemy(app)
+
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    post_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer)
+
+@app.route('/like', methods=['POST'])
+def like():
+    post_id = request.form['post_id']
+    user_id = request.form['user_id']
+
+    like = Like(post_id=post_id, user_id=user_id)
+    db.session.add(like)
+    db.session.commit()
+
+    count = Like.query.filter_by(post_id=post_id).count()
+
+    return str(count)
+
+@app.route('/post/<int:post_id>')
+def post(post_id):
+    count = Like.query.filter_by(post_id=post_id).count()
+
+    return render_template('post.html', count=count)
+
+if __name__ == '__main__':
+    app.run()
+
+
+
+bestmethod
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///likes.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique=True, nullable=True)
+    password = db.Column(db.String)
+
+    def __str__(self):
+        return self.username
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    content = db.Column(db.String)
+    user_id = db.Column(db.Integer)
+    likes = db.relationship('PostLike', backref='post', lazy=True)
+
+    def __str__(self):
+        return self.title
+
+class PostLike(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
+
+@app.route('/')
+def home():
+    posts = Post.query.all()
+    return render_template('home.html', posts=posts)
+
+@app.route('/like/<int:post_id>', methods=['POST'])
+def like(post_id):
+    user_id = request.form['user_id']
+    post_like = PostLike(user_id=user_id, post_id=post_id)
+    db.session.add(post_like)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+@app.route('/unlike/<int:post_id>', methods=['POST'])
+def unlike(post_id):
+    user_id = request.form['user_id']
+    post_like = PostLike.query.filter_by(user_id=user_id, post_id=post_id).first()
+    db.session.delete(post_like)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+@app.route('/like_count/<int:post_id>')
+def like_count(post_id):
+    count = PostLike.query.filter_by(post_id=post_id).count()
+    return str(count)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+  <form action="{{ url_for('like', post_id=post.id) }}" method="POST">
+      <input type="hidden" name="user_id" value="{{ current_user.id }}">
+      <button type="submit">Like</button>
+  </form>
+  <form action="{{ url_for('unlike', post_id=post.id) }}" method="POST">
+      <input type="hidden" name="user_id" value="{{ current_user.id }}">
+      <button type="submit">Unlike</button>
+  </form>
+  <p>{{ url_for('like_count', post_id=post.id) }} people liked this.</p>
+{% endblock %}
+
+
+
+IMage upload code
+
+
+
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+import os
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = 'static/images'
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    image_file = db.Column(db.String(120), nullable=False, default='default.jpg')
+
+    def __repr__(self):
+        return f"User('{self.name}', '{self.email}', '{self.image_file}')"
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
+        if 'image' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['image']
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            user = User(name=name, email=email, password=password, image_file=filename)
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('profile', user_id=user.id))
+    return render_template('index.html')
+
+@app.route('/profile/<int:user_id>')
+def profile(user_id):
+    user = User.query.get_or_404(user_id)
+    return render_template('profile.html', user=user)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .profile p {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <img src="{{ url_for('static', filename=user.image_file) }}" alt="Profile Picture">
+        <h1>{{ user.name }}</h1>
+        <p>{{ user.email }}</p>
+    </div>
+</body>
+</html>

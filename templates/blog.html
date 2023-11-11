@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="blogland" id="#blog">
+        <div class="logo" id="nav">
+          <h2>dine</h2>
+           <ul>
+               <li><a href="/home">Home</a></li>
+              <li><a href="/post">Post</a></li>
+              <li><a href="/signup">Signup</a></li>
+              <li><a href="/signin">signin</a></li>
+              <li><a href="#">about</a></li>
+           </ul> 
+       </div>
+        <div>
+          <h1>BLOGPOST</h1>
+        </div>
+      </section>
+    
+    
+    
+    
+    {% for item in data %} 
+    <a href="/post/{{item['id']}}">
+        <h2>
+            {{item['title']}}
+        </h2>
+    </a>
+    {% endfor %}
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
+
+
+
